@@ -1,0 +1,52 @@
+:root {
+  --heading-color: #2c3e50;
+  --link-color: #34495e;
+  --link-hover-color: #e67e22;
+}
+
+html,
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body a {
+  text-decoration: none;
+  color: var(--link-color);
+
+  &:hover {
+    color: var(--link-hover-color);
+  }
+}
+
+/* Header Styles */
+header {
+  padding: 0 32px;
+  padding-top: 23px;
+  padding-bottom: 20px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 10%);
+
+  h1 {
+    margin: 0;
+    margin-bottom: 26.5px;
+    font-size: 32px;
+    color: var(--heading-color);
+  }
+
+  nav {
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+
+      li {
+        display: inline;
+      }
+
+      li.gap {
+        margin-right: 27.5px;
+      }
+    }
+  }
+}

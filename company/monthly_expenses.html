@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monthly Expenses</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 2px solid grey;
+        border-collapse: collapse;
+        padding: 20px;
+      }
+
+      thead {
+        font-size: 30px;
+      }
+
+      .category {
+        font-size: 20px;
+      }
+
+      .left-align {
+        text-align: left;
+      }
+
+      .subtotal-row {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <br /><br />
+    <table>
+      <thead>
+        <tr>
+          <th colspan="4">Monthly Expenses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="4" class="category">Grocery</th>
+          <th class="left-align">Item</th>
+          <th class="left-align">Quantity</th>
+          <th class="left-align">Price</th>
+        </tr>
+        <tr>
+          <td>Bread</td>
+          <td>1</td>
+          <td>Rs. 200</td>
+        </tr>
+        <tr>
+          <td>Eggs</td>
+          <td>11</td>
+          <td>Rs. 350</td>
+        </tr>
+        <tr class="subtotal-row">
+          <td>Subtotal</td>
+          <td>12</td>
+          <td>Rs. 550</td>
+        </tr>
+
+        <tr>
+          <th rowspan="5" class="category">Electronics</th>
+          <th class="left-align">Item</th>
+          <th class="left-align">Quantity</th>
+          <th class="left-align">Price</th>
+        </tr>
+        <tr>
+          <td>Refrigerator</td>
+          <td>1</td>
+          <td>Rs. 40,000</td>
+        </tr>
+        <tr>
+          <td>Sewing Machine</td>
+          <td>1</td>
+          <td>Rs. 15,000</td>
+        </tr>
+        <tr>
+          <td>Fans</td>
+          <td>3</td>
+          <td>Rs. 30,000</td>
+        </tr>
+        <tr class="subtotal-row">
+          <td>Subtotal</td>
+          <td>5</td>
+          <td>Rs. 85,000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="2">Total</th>
+          <th class="left-align">17</th>
+          <th class="left-align">Rs. 85,550</th>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
