@@ -2,6 +2,7 @@
   --heading-color: #2c3e50;
   --link-color: #34495e;
   --link-hover-color: #e67e22;
+  --aside-bg-color: #f8f9fa;
 }
 
 html,
@@ -11,42 +12,76 @@ body {
   padding: 0;
 }
 
-body a {
-  text-decoration: none;
-  color: var(--link-color);
+body {
+  a {
+    text-decoration: none;
+    color: var(--link-color);
 
-  &:hover {
-    color: var(--link-hover-color);
+    &:hover {
+      color: var(--link-hover-color);
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
   }
 }
 
 /* Header Styles */
 header {
-  padding: 0 32px;
-  padding-top: 23px;
-  padding-bottom: 20px;
+  padding: 23px 32px 20px; /* top, right&left, bottom */
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 10%);
 
   h1 {
-    margin: 0;
-    margin-bottom: 26.5px;
+    margin: 0 0 26.5px;
     font-size: 32px;
     color: var(--heading-color);
   }
 
-  nav {
-    ul {
-      padding: 0;
-      margin: 0;
-      list-style-type: none;
+  li {
+    display: inline;
 
-      li {
-        display: inline;
+    &:not(:last-child) {
+      margin-right: 27.5px;
+    }
+  }
+}
+
+#main-container {
+  padding: 32px 209px;
+  display: flow-root; /* Creates a BFC and clears floats */
+
+  /* Aside Styles */
+  aside {
+    width: 16%;
+    float: left;
+    border-radius: 8px;
+    background-color: var(--aside-bg-color);
+    padding: 29px 40px 39px 23.5px;
+
+    section {
+      &:not(:last-child) {
+        margin-bottom: 41px;
       }
 
-      li.gap {
-        margin-right: 27.5px;
+      h2 {
+        margin: 0 0 24px;
+        font-size: 20px;
+        color: var(--heading-color);
+      }
+
+      li:not(:last-child) {
+        margin-bottom: 19.7px;
       }
     }
   }
+
+  /* Main Styles */
+  /* main {
+    width: 50%;
+    float: left;
+    background-color: #964444;
+  } */
 }
