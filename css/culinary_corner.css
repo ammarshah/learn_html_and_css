@@ -90,6 +90,10 @@ header {
       border-radius: 8px;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10%);
 
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+
       figure {
         margin: 0;
         position: relative;
