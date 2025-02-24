@@ -1,9 +1,12 @@
 :root {
-  --heading-color: #2c3e50;
-  --link-color: #34495e;
-  --link-hover-color: #e67e22;
-  --aside-bg-color: #f8f9fa;
-  --time-color: #666;
+  --white-color: #fff;
+  --dark-grey-color: #333;
+  --medium-grey-color: #666;
+  --light-grey-color: #bdc3c7;
+  --very-light-grey-color: #f8f9fa;
+  --dark-blue-color: #2c3e50;
+  --light-blue-color: #34495e;
+  --orange-color: #e67e22;
 }
 
 html,
@@ -14,14 +17,14 @@ body {
 }
 
 body {
-  color: #333;
+  color: var(--dark-grey-color);
 
   a {
     text-decoration: none;
-    color: var(--link-color);
+    color: var(--light-blue-color);
 
     &:hover {
-      color: var(--link-hover-color);
+      color: var(--orange-color);
     }
   }
 
@@ -39,7 +42,7 @@ header {
 
   h1 {
     margin: 0 0 26.5px;
-    color: var(--heading-color);
+    color: var(--dark-blue-color);
   }
 
   li {
@@ -51,8 +54,9 @@ header {
   }
 }
 
+/* Main Container Styles */
 #main-container {
-  padding: 32px 208px 32px 209px;
+  padding: 32px 208px 48px 209px;
   display: flow-root; /* Creates a BFC and clears floats (expands to keep floating children elements inside itself) */
 
   /* Aside Styles */
@@ -60,7 +64,7 @@ header {
     width: 16%;
     float: left;
     border-radius: 8px;
-    background-color: var(--aside-bg-color);
+    background-color: var(--very-light-grey-color);
     padding: 29px 40px 39px 23.5px;
 
     section {
@@ -71,7 +75,7 @@ header {
       h2 {
         margin: 0 0 24px;
         font-size: 20px;
-        color: var(--heading-color);
+        color: var(--dark-blue-color);
       }
 
       li:not(:last-child) {
@@ -110,8 +114,8 @@ header {
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(0, 0, 0, 70%);
-          color: #fff;
+          background-color: rgba(0, 0, 0, 70%);
+          color: var(--white-color);
           padding: 19.5px 16px;
         }
       }
@@ -121,12 +125,12 @@ header {
 
         time {
           font-size: 14.4px;
-          color: var(--time-color);
+          color: var(--medium-grey-color);
         }
 
         h2 {
           font-size: 28px;
-          color: var(--heading-color);
+          color: var(--dark-blue-color);
           margin: 25px 0 24px;
         }
 
@@ -134,6 +138,39 @@ header {
           line-height: 1.6;
         }
       }
+    }
+  }
+}
+
+/* Footer Styles */
+footer {
+  display: flow-root;
+  background-color: var(--dark-blue-color);
+  padding: 36px 192.5px;
+
+  nav {
+    float: left;
+
+    li {
+      display: inline;
+
+      &:not(:last-child) {
+        margin-right: 27.5px;
+      }
+    }
+
+    a {
+      color: var(--white-color);
+    }
+  }
+
+  #copyright {
+    float: right;
+
+    p {
+      margin: 0;
+      color: var(--light-grey-color);
+      font-size: 14.4px;
     }
   }
 }
