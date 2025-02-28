@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo Element Selectors</title>
+    <style>
+      /* To select the first letter of the p */
+      p::first-letter {
+        font-size: 200%;
+        font-weight: bold;
+      }
+
+      /* To select the first line of the p */
+      p::first-line {
+        color: blue;
+      }
+
+      /* To style the text selection via mouse or keyboard */
+      ::selection {
+        background-color: pink;
+      }
+
+      /* To style the text selection of all paragraphs */
+      p::selection {
+        background-color: grey;
+      }
+
+      /* To insert a pseudo element before or after an element */
+      p::after {
+        content: "...";
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore doloremque
+      atque, error excepturi cupiditate amet enim quia officia quasi esse et
+      quae non corporis at autem explicabo minima sed! Iure repellendus ad dolor
+      sit maxime autem, saepe, quos perferendis sequi id nemo numquam, cumque
+      voluptas ullam ut quod facilis aperiam?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore doloremque
+      atque, error excepturi cupiditate amet enim quia officia quasi esse et
+      quae non corporis at autem explicabo minima sed! Iure repellendus ad dolor
+      sit maxime autem, saepe, quos perferendis sequi id nemo numquam, cumque
+      voluptas ullam ut quod facilis aperiam?
+    </p>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+  </body>
+</html>
