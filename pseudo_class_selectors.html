@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo Class Selectors</title>
+    <style>
+      /* To select the first child of the article */
+      article :first-child {
+        font-size: 140%;
+        font-style: italic;
+      }
+
+      /* To select the first occurrence of elements of different types inside the article */
+      article :first-of-type {
+        color: blue;
+      }
+
+      /* To select the first occurrence of p inside the article */
+      article p:first-of-type {
+        border: 1px solid red;
+      }
+
+      /* To select the last child of the article */
+      article :last-child {
+        font-weight: bold;
+      }
+
+      /* To select all the odd list items of the ul */
+      /* Other options: even and 3n (to select every third item) */
+      ul li:nth-child(odd) {
+        color: deeppink;
+      }
+
+      /* To select the anchors that are not visited */
+      a:link {
+        color: black;
+      }
+
+      /* To select the anchors that are visited */
+      a:visited {
+        color: darkorange;
+      }
+
+      /* To add styles to an element on mouse hover and when focus via keyboard tab key */
+      /* It's a best practice to apply the same styles to focus pseudo selector as well when you use hover */
+      a:hover,
+      a:focus {
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h2>Heading</h2>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
+        possimus!
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
+        possimus!
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
+        possimus!
+      </p>
+    </article>
+
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+
+    <a href="https://google.com">Google</a>
+  </body>
+</html>
