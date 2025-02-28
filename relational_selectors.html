@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relational Selectors</title>
+    <style>
+      /* To select the `p` that is a direct child of the #products */
+      #products > p {
+        color: orange;
+      }
+
+      /* To select all the `p`s that come after the #products (called general siblings of the #products) */
+      #products ~ p {
+        color: red;
+      }
+
+      /* To select the `p` that is an immediate sibling of the #products */
+      /* This should come after the ~ selector, otherwise ~ will apply red color to all 3 paragraphs */
+      #products + p {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="products">
+      <p>This is a direct child/descendent of the #products.</p>
+      <article>
+        <p>This should have a default color.</p>
+      </article>
+    </section>
+    <p>
+      This is the immediate sibling of the #products and also a general sibling
+      in case of ~ usage in the CSS.
+    </p>
+    <p>All these 3 paragraphs are the general siblings of the #products.</p>
+    <p>I'm a general sibling paragraph.</p>
+  </body>
+</html>
