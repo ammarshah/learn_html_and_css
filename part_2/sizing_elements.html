@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sizing Elements</title>
+    <style>
+      /*
+      Use Universal Selector to select all HTML elements.
+
+      You should avoid to use this as much as possible because it has performance implications but the below is the most
+      common use case of it.
+
+      Also, this will not apply on the pseudo elements like ::before, ::after etc, so you'll have to include them explicitly.
+      */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /*
+      By default the `box-sizing` property is set to `content-box`
+      which would cause the padding and border sizes to increase the
+      total size of the box from 100x100 to 160x160 in this case.
+
+      Setting the `box-sizing` to `border-box` will subtract the
+      padding and border pixels from content area while maintaining
+      the total size of the box to 100x100.
+      */
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: gold;
+        padding: 20px;
+        border: 10px solid grey;
+      }
+
+      .box::before {
+        content: "Hello!";
+      }
+
+      /*
+      The width and height properties are only applied to the block-level elements.
+
+      To apply them to the inline elements, use `display: inline-block` property.
+      Which will keep the elements inline (next to each other) and being able to
+      apply width and height to it. 
+      */
+      .another-box {
+        width: 100px;
+        height: 100px;
+        background-color: gold;
+        display: inline-block; /* For inline elements and block-level elements, it is set to `inline` and `block` by default respectively. */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <span class="another-box">Hello!</span>
+    <span class="another-box">Hello!</span>
+    <p>
+      To get rid of the whitespace between the above two span elements, you'll
+      have to put them next to each other in the HTML markup.
+    </p>
+  </body>
+</html>
