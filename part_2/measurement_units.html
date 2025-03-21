@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Measurement Units</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      /*
+      Using Absolute Unit
+      
+      1. px - it's always fixed no matter how big or small the screen size of the device is.
+      */
+      .box {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: gold;
+        border-top: 3px solid tomato;
+      }
+
+      /*
+      Using Relative Units
+      
+      1. %          - relative to the size of the parent element.
+      2. vw and vh  - relative to the size of the viewport.
+      3. em and rem - relative to the font size.
+        Examples:
+          10em = 10 times the font-size of the current element.
+            (If the font-size is not explicitly set on the element,
+            it will be inherited from wherever the font-size is found
+            in its inheritance hierarchy upto the html element which is
+            always given a default value by every browser)
+
+          rem (looks for the font-size directly in the root element i.e. html)
+      */
+      .box-2 {
+        display: inline-block;
+        width: 10%; /* 50% of the width of the parent element i.e. body. */
+        height: 100%; /* 100% of the height of the parent element i.e. body, but since body has no height given, it will be zero. */
+        background-color: gold;
+        border-top: 3px solid tomato; /* Only this would show up since it has an absolute unit */
+      }
+
+      .box-3 {
+        display: inline-block;
+        width: 10vw; /* 10% of the width of the viewport. */
+        height: 50vh; /* 50% of the height of the viewport. */
+        background-color: gold;
+      }
+
+      .box-4 {
+        display: inline-block;
+        font-size: 20px;
+        width: 10em; /* 10 x 20px = 200px */
+        height: 10rem; /* 10 x 16px (font-size of the root element) = 160px */
+        background-color: gold;
+      }
+    </style>
+  </head>
+  <body>
+    <span class="box"></span>
+    <span class="box-2"></span>
+    <span class="box-3"></span>
+    <span class="box-4"></span>
+  </body>
+</html>
