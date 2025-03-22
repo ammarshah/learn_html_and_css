@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positioning</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .boxes {
+        margin-top: 4rem;
+        height: 200vh; /* To demonstrate the fixed position header */
+        border: 7px solid lightgrey;
+        position: relative; /* In order to position an element (box-three) relative to its parent container - the container must be positioned relative */
+      }
+
+      .box {
+        width: 5rem;
+        height: 5rem;
+      }
+
+      .box-one {
+        background: gold;
+      }
+
+      .box-two {
+        background: tomato;
+        position: relative; /* To position the box relative to its normal position. Default value is `static`, meaning it's in its normal position */
+        left: 3rem;
+        bottom: 3rem;
+        /*
+        When we position an element, it appears last in the stacking-order of the elements
+        in the DOM which may make it appear on top of other elements on the page.
+
+        So, we can use the z-index property to move the element on the Z axis (upward or downward).
+
+        Positive value means upward or closer to us and negative value means downward or away from us.
+        */
+        z-index: -1; /* Default value is 0 */
+      }
+
+      /*
+      Absolutely positioning an element removes it from the normal document flow of the page which means,
+      from the parent's point-of-view, that element doesn't exist or you can say it exists on
+      a separate layer (this has nothing to do with the z-index property btw).
+
+      That's why the box-four has now moved up and has taken the space that the box-three previously had.
+      */
+      .box-three {
+        background: dodgerblue;
+        position: absolute; /* To position this element relative to its parent container */
+        right: 0;
+        bottom: 0;
+      }
+
+      /*
+      This is another way to set the width/height of an element.
+      */
+      .box-four {
+        background: pink;
+        position: absolute;
+        left: 2rem;
+        right: 2rem;
+        width: auto; /* Since we've explicitly set the width of the box to 5rem before and so to make it work, we need to use width: auto and let the browser decide how wide this box should be. */
+      }
+
+      header {
+        background: aquamarine;
+        width: 100vw; /* Although, it's a block-level element, it's only taking up the width as per the content - not the full page width and I'm not sure why!!! */
+        height: 3rem;
+        position: fixed; /* To position an element relative to the viewport */
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      An element with position: fixed; is positioned relative to the viewport,
+      which means it always stays in the same place even if the page is
+      scrolled.
+    </header>
+    <div class="boxes">
+      <div class="box box-one"></div>
+      <div class="box box-two"></div>
+      <div class="box box-three"></div>
+      <div class="box box-four"></div>
+    </div>
+  </body>
+</html>
