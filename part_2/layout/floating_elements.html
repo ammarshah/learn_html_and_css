@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floating Elements</title>
+    <style>
+      .tweet .avatar {
+        width: 5rem;
+        height: 5rem;
+        background-color: gold;
+        float: left; /* To float the avatar element to the left side of its container and as a result of that, all the subsequent elements will flow around it (the paragraph element in this case) */
+        margin-right: 0.5rem;
+      }
+
+      /*
+      Use this class on an element to clear it from flowing around the floated element.
+
+      We could've used clear: left; in this case because the floated element is floated to the left,
+      but using clear: both; is easier because then we don't have to remember the direction of floats.
+      */
+      .clear {
+        clear: both;
+      }
+
+      .tweet-border {
+        border: 3px solid lightgrey;
+      }
+
+      h3 {
+        color: dodgerblue;
+        margin-top: 3rem;
+      }
+
+      p.hint {
+        font-style: italic;
+        font-size: 90%;
+      }
+
+      .clearfix::after {
+        content: "";
+        display: block; /* It's an inline element by default so we have to convert it to a block-level element (like a div) */
+        clear: both;
+      }
+
+      .clearfix-using-overflow {
+        overflow: hidden; /* We could use any value here other than `visible` */
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Using Float</h2>
+    <article class="tweet">
+      <div class="avatar">Floated element</div>
+      <p>
+        All the subsequent elements (even if not in the same container) will
+        flow around the floated element unless cleared like the next paragraph.
+      </p>
+      <p class="clear">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic rem
+        perspiciatis dicta consectetur totam provident possimus eius?
+        Perferendis quidem recusandae consectetur explicabo ex fugiat ullam,
+        inventore expedita dolorem saepe accusantium similique beatae nobis
+        rerum ut aliquid ad, doloribus perspiciatis corrupti maxime dolores et.
+        Quo porro optio cupiditate explicabo, itaque nostrum.
+      </p>
+    </article>
+
+    <hr />
+
+    <h2>Parent Collapsing</h2>
+    <p>
+      By default parent elements don't see floated elements so they collapse.
+    </p>
+    <article class="tweet tweet-border">
+      <div class="avatar"></div>
+      <p>
+        Parent element has got tall enough just to contain the paragraph
+        element.
+      </p>
+    </article>
+
+    <h3 class="clear">Solution # 1:</h3>
+    <article class="tweet tweet-border">
+      <div class="avatar"></div>
+      <p>
+        Add an empty <code>div</code> at the end of this container to clear the
+        float.
+      </p>
+      <div class="clear"></div>
+    </article>
+    <p class="hint">
+      It's a good practice to always clear floats after using them to avoid
+      weird layout issues.
+    </p>
+    <p class="hint">
+      But the problem with this approach is that the empty div is not very
+      meaningful to search engines and screen readers because we have purely
+      added it to solve a layout issue.
+    </p>
+
+    <h3>Solution # 2:</h3>
+    <article class="tweet tweet-border clearfix">
+      <div class="avatar"></div>
+      <p>
+        Dynamically add an <code>::after</code> pseudo element to prevent from
+        polluting the markup from non-semantic (meaningless) elements.
+      </p>
+    </article>
+
+    <h3>Solution # 3:</h3>
+    <article class="tweet tweet-border clearfix-using-overflow">
+      <div class="avatar"></div>
+      <p>Use the <code>overflow</code> property without clearing the float.</p>
+      <p class="hint">
+        This solution is considered a hack and is not the best way to solve this
+        problem because you might end up with either getting a scrollbar
+        somewhere (<code>overflow: auto;</code>) or content being clipped (<code
+          >overflow: hidden;</code
+        >).
+      </p>
+    </article>
+  </body>
+</html>
