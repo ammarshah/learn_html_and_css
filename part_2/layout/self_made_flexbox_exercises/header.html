@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      header {
+        background: lightgrey;
+        padding: 14px;
+        border-bottom: 1px solid grey;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      img {
+        width: 6rem;
+        height: 6rem;
+        border: 1px solid black;
+        border-radius: 50%;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      .vertical-aligned {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        column-gap: 2rem;
+      }
+
+      ul#account-links {
+        align-self: flex-end;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="/part_1/images/me.svg" alt="Website Logo" />
+
+      <div class="vertical-aligned">
+        <h1>My Website</h1>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Contact Us</a></li>
+          <li><a href="">Career</a></li>
+          <li><a href="">Pricing</a></li>
+          <li><a href="">Company</a></li>
+        </ul>
+      </div>
+
+      <ul id="account-links">
+        <li><a href="">Login</a></li>
+        <li><a href="">Sign up</a></li>
+      </ul>
+    </header>
+  </body>
+</html>
