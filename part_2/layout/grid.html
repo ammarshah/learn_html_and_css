@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      code {
+        background-color: lightgrey;
+        color: darkslategrey;
+        padding: 0.2em;
+      }
+
+      span {
+        color: red;
+      }
+
+      .box {
+        background-color: gold;
+        border: 1px solid yellow;
+      }
+
+      .container {
+        border: 3px solid lightgrey;
+        height: 50vh;
+        display: grid; /* Enables grid on the container */
+
+        /* Here we are defining 3x2 grid in 3 different ways: */
+
+        /* 1. Using the basic way */
+        /* grid-template-rows: 100px 100px 100px;
+        grid-template-columns: 100px 100px; */
+
+        /* 2. Using the `repeat` function */
+        /* grid-template-rows: repeat(3, 100px);
+        grid-template-columns: repeat(2, 100px); */
+
+        /* 3. Using the shorthand syntax */
+        grid-template: repeat(3, 100px) / repeat(2, 100px);
+
+        justify-content: center; /* To align the whole grid horizontally */
+        align-content: center; /* To align the whole grid vertically */
+      }
+
+      .container-1 {
+        justify-items: center; /* To align items along the horizontal axis */
+        align-items: center; /* To align items along the vertical axis */
+
+        .box {
+          width: 5rem;
+          height: 5rem;
+        }
+      }
+
+      .container-2 {
+        grid-template: repeat(3, 100px) / 30% 70%;
+      }
+
+      .container-3 {
+        justify-content: start; /* Using the default value to align the grid at the start */
+        grid-template: repeat(3, 100px) / 100px 30% 70%;
+      }
+
+      .container-4 {
+        grid-template: repeat(3, 100px) / 100px 1fr 2.5fr;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Grid</h1>
+
+    <h2>Using <code>justify-content</code> and <code>align-content</code>:</h2>
+    <div class="container">
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+      <div class="box">D</div>
+      <div class="box">E</div>
+      <div class="box">F</div>
+    </div>
+
+    <h2>Using <code>justify-items</code> and <code>align-items</code>:</h2>
+    <p>Default value for both of these properties is <code>stretch</code>.</p>
+    <p>
+      If we have items with a fixed size (smaller than its cell), we can align
+      them horizontally and vertically within their own cells.
+    </p>
+    <p>
+      In this example, the boxes have a fixed width and height of
+      <code>5rem</code> and we are aligning them in the <code>center</code>.
+    </p>
+    <div class="container container-1">
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+      <div class="box">D</div>
+      <div class="box">E</div>
+      <div class="box">F</div>
+    </div>
+
+    <h2>Defining column size using a relative unit (<code>%</code>):</h2>
+    <div class="container container-2">
+      <div class="box">A <span>(30%)</span></div>
+      <div class="box">B <span>(70%)</span></div>
+      <div class="box">C</div>
+      <div class="box">D</div>
+      <div class="box">E</div>
+      <div class="box">F</div>
+    </div>
+
+    <h2>
+      Defining column size using mixed (<code>px</code> and <code>%</code>)
+      units:
+    </h2>
+    <p>
+      When mixing both absolute and relative units, it's hard to figure out the
+      available space of the container and so to prevent the grid from
+      overflowing.
+    </p>
+    <p>
+      In the below example, 2nd and 3rd columns are collectively occupying 100%
+      width of the container, so anything extra would lead to overflow.
+    </p>
+    <div class="container container-3">
+      <div class="box">A <span>(100px)</span></div>
+      <div class="box">B <span>(30%)</span></div>
+      <div class="box">C <span>(70%)</span></div>
+      <div class="box">D</div>
+      <div class="box">E</div>
+      <div class="box">F</div>
+      <div class="box">G</div>
+      <div class="box">H</div>
+      <div class="box">I</div>
+    </div>
+
+    <p>
+      To fix the above problem, grid provides a unit of measurement known as the
+      <code>fr</code> unit which represents a fraction of the leftover space in
+      the grid container.
+    </p>
+    <p>
+      So, anything left after assigning <code>100px</code> to the 1st column -
+      will be divided into fractions, thus prevents overflow.
+    </p>
+    <p>
+      Also, it's a good practice to use smaller numbers for
+      <code>fr</code> unit, so instead of using <code>30fr</code> and
+      <code>70fr</code>, we could say that the 3rd column is almost 2.5 times
+      wider than the 2nd column.
+    </p>
+    <p>
+      So, we could assign <code>1fr</code> to the 2nd column and
+      <code>2.5fr</code> to the 3rd column.
+    </p>
+    <p>
+      Check out
+      <a
+        href="https://www.digitalocean.com/community/tutorials/css-css-grid-layout-fr-unit"
+        target="_blank"
+        >this blog</a
+      >
+      for more details.
+    </p>
+    <div class="container container-4">
+      <div class="box">A <span>(100px)</span></div>
+      <div class="box">B <span>(1fr)</span></div>
+      <div class="box">C <span>(2.5fr)</span></div>
+      <div class="box">D</div>
+      <div class="box">E</div>
+      <div class="box">F</div>
+      <div class="box">G</div>
+      <div class="box">H</div>
+      <div class="box">I</div>
+    </div>
+  </body>
+</html>
