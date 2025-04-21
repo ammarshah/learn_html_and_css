@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hiding Elements</title>
+    <style>
+      code {
+        background-color: lightgrey;
+        color: darkslategrey;
+        padding: 0.2em;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .invisible {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hiding Elements</h1>
+
+    <h2>Using <code>display: none;</code></h2>
+    <p class="hide">1. First paragraph</p>
+    <p>2. The paragraph above this is hidden as if it doesn't exist.</p>
+
+    <br />
+    <hr />
+    <br />
+
+    <h2>Using <code>visibility: hidden;</code></h2>
+    <p class="invisible">1. First paragraph</p>
+    <p>
+      2. The paragraph above this is invisible but the space, it may take, is
+      still.
+    </p>
+  </body>
+</html>
